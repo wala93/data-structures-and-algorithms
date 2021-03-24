@@ -21,25 +21,18 @@ function lower(str) {
   return str.toLowerCase();
 }
 
-const updateAnimal = (arr,upper) => {
+const updateAnimal = (arr,callback) => {
   // Solution code here...
-  const animals=[];
-  arr.foreach((str)=> {animals.push(upper(str));
+  let animals=arr.foreach((str)=> {animals.push(callback(str));
+
 
   });
 
   return animals ;
 };
 
-const updateAnimal = (arr,lower) => {
-  // Solution code here...
-  const animals=[];
-  arr.foreach((str)=> {animals.push(lower(str));
 
-  });
 
-  return animals ;
-};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -50,9 +43,8 @@ For example: 'Cat' would come before 'apple'
 
 const sortNames = (arr) => {
   // Solution code here...
-const names =[];
-  names=arr.sort();
-  return names ;
+
+  return arr.sort();
 };
 
 
@@ -88,8 +80,8 @@ const sortBackwards = (arr) => {
       return -1;
     }
   }
-);
-return numbers;
+  );
+  return numbers;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,8 +103,8 @@ const alphabetize = (arr) => {
       return -1;
     }
   }
-);
-return strings ;
+  );
+  return strings ;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -137,8 +129,8 @@ const sortByPrice = (arr) => {
       return -1;
     }
   }
-);
-return arrOfObj ;
+  );
+  return arrOfObj ;
 };
 
 /* ------------------------------------------------------------------------------------------------
