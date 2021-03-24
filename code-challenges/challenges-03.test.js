@@ -58,9 +58,8 @@ HINT: Beware... JS default is "Lexical" ordering.
 
 const sortNumbers = (arr) => {
   // Solution code here...
-  const numbers =[];
-  numbers=arr.sort();
-  return numbers ;
+  
+  return arr.sort(a,b);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -97,7 +96,7 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 const alphabetize = (arr) => {
   // Solution code here...
   const strings = arr.sort( (a,b) => {
-    if(a< b){
+    if(a.toLowerCase()< b.toLowerCase()){
       return 1;
     } else {
       return -1;
@@ -318,7 +317,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should sort items by their price', () => {
     expect(sortByPrice([
       {name: 'Sweatshirt', price: 45},
