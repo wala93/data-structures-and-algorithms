@@ -3,27 +3,22 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function called addTwo that takes in an array and adds two to every value using a for loop. Place the new value in a new array. Return the new array.
+Write a function called addTwo that takes in an array and adds two to every value using a for loop. Place the new value in a new array. Return the new array. 
 ------------------------------------------------------------------------------------------------ */
 
 const addTwo = (arr) => {
   // Solution code here...
-  for (let i=0;arr.length;i++){arr[i]+2;}
-  return arr ;
-
-};
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named containsW that takes in a string. This function should use a regular expression pattern to return true if the string contains the letter 'w' in lower case or false if it does not.
+Write a function named containsW that takes in a string. This function should use a regular expression pattern to return true if the string contains the letter 'w' in lower case or false if it does not. 
 
 ------------------------------------------------------------------------------------------------ */
 
 const containsW = (str) => {
   // Solution code here...
-  let reg = /w/;
-  return str.match(reg);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -40,8 +35,6 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
-  let reg = /[0-9]/;
-  return input.match(reg);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -53,8 +46,6 @@ Write a function named containsWorld that takes in a string or number of any len
 
 const containsWorld = (input) => {
   // Solution code here...
-  let reg = /(world)/;
-  return input.match(reg);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,8 +58,6 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
-  let reg = /\^[A-Z]/;
-  return str.match(reg);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -79,11 +68,6 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
-  let reg = /\^[A-J]/;
-  let newArr =[];
-  for (let i=0;length.arr;i++){
-    if (arr[i].match(reg)){newArr.push(arr[i]);}
-  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -161,7 +145,7 @@ Run your tests from the console: jest challenges-04.solution.test.js
 describe('Testing challenge 1', () => {
   test('It should add two to every value', () => {
     expect(addTwo([1, 2, 4])).toStrictEqual([3, 4, 6]);
-  });
+  })
 });
 
 describe('Testing challenge 2', () => {
@@ -173,8 +157,8 @@ describe('Testing challenge 2', () => {
   });
   test('It should return false if the input does not contain a w', () => {
     expect(containsW('hello everyone')).toBe(false);
-  });
-});
+  })
+})
 
 describe('Testing challenge 3', () => {
   test('It should return true if the input is a number', () => {
@@ -200,7 +184,7 @@ describe('Testing challenge 4', () => {
   test('It should return false if the input does not contain the word school', () => {
     expect(containsWorld('hello everyone')).toBe(false);
   });
-});
+})
 
 describe('Testing challenge 5', () => {
   test('It should only return words that begin with a capital letter', () => {
