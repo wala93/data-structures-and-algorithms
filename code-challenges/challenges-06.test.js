@@ -57,9 +57,17 @@ let characters = [
 const sortByChildren = (charArray) => {
 
   // Solution code here...
-  let kidsNo= Object.keys(characters);
 
-  kidsNo.sort();
+  charArray.sort((a,b)=>{
+    if (a.children.length > b.children.length) {
+      return 1;
+    }
+    if (a.children.length < b.children.length) {
+      return -1;
+    }
+    return 0;
+  });
+  return charArray;
 
 };
 
@@ -77,8 +85,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 
 const getCourseKeys = (obj) => {
   // Solution code here...
-  let keyArr= Object.keys(courseInfo);
-  return keyArr;
+  return Object.keys(obj);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -91,10 +98,16 @@ Write a function named checkValues that takes in an object and a value and retur
 
 const checkValues = (obj, value) => {
   // Solution code here...
-  let valuesArr = Object.values(obj);
-  valuesArr.forEach(element => {
-    if (element === value) {return true ;}
-  });
+  const arr=[];
+  if(Object.values(obj).includes(value)){
+
+    return true;
+    arr.push(value);
+  }
+  else{
+    return false;
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -118,10 +131,15 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 const updateNumbers = (obj) => {
   // Solution code here...
-  let arr= Object.values(obj);
-  arr.forEach(element => {
-    arr.join(':');
-  });
+
+  const arr=[];
+  for(let i=0;i<Object.values(obj).length;i++){
+    let update= `${Object.keys(obj)[i]}: ${Object.values(obj)[i]}`;
+    console.log(update);
+    arr.push(update);
+  }
+
+  return arr;
 };
 
 
@@ -133,8 +151,15 @@ Write a function named getHouses that returns a new array containing the names o
 ------------------------------------------------------------------------------------------------ */
 
 const getHouses = (arr) => {
-  let houses = [];
+
   // Solution code here...
+  let houses = [];
+
+  // Solution code here...
+  arr.forEach(element=>{
+    houses.push(element.house);
+  });
+
   return houses;
 };
 
@@ -152,7 +177,14 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
+  let defaultCheck=false;
+  arr.forEach(element=>{
+    if(element.name === character){
+      defaultCheck=Object.values(element)[2].length ? true :true;
+    }
 
+  });
+  return defaultCheck;
 };
 
 /* ------------------------------------------------------------------------------------------------
