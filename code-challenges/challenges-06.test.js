@@ -98,16 +98,16 @@ Write a function named checkValues that takes in an object and a value and retur
 
 const checkValues = (obj, value) => {
   // Solution code here...
-  const arr=[];
+
   if(Object.values(obj).includes(value)){
 
     return true;
-    arr.push(value);
+
   }
   else{
     return false;
   }
-  return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -143,7 +143,6 @@ const updateNumbers = (obj) => {
 };
 
 
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -159,8 +158,8 @@ const getHouses = (arr) => {
   arr.forEach(element=>{
     houses.push(element.house);
   });
-
   return houses;
+
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -178,6 +177,7 @@ hasChildrenValues(characters, 'Sansa') will return false
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
   let defaultCheck=false;
+
   arr.forEach(element=>{
     if(element.name === character){
       defaultCheck=Object.values(element)[2].length ? true :true;
