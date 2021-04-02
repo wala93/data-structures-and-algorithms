@@ -24,11 +24,22 @@ Returns: ['dyoll', 'eimaj'];
 
 const getNames = (arr) => {
   // Solution code here...
-  return arr
-    .map(item => item.name
-      .split('')
-      .reverse()
-      .join(''));
+
+  const arrayOfNames=[];
+
+  arr.map(element=>{
+
+    const arraySplit=element.name.split('');
+    let reversedName=arraySplit.reduce(function(a,b,idx){
+      a.push(arraySplit[arraySplit.length-(idx+1)]);
+      return a;
+    },[]);
+
+    let nameAfter= reversedName.join('');
+    arrayOfNames.push(nameAfter);
+  });
+  return arrayOfNames;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,11 +55,17 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 const count = (target, input) => {
   // Solution code here...
 
-  return input
-    .reduce((intArr, val) => {
-      return intArr += val
-        .reduce((int2, val2) => (val2 === target) ? int2 += 1 : int2, 0);
-    }, 0);
+  let counter=0;
+  input.map(arr=>{
+    if(arr.includes(target)){
+      arr.map(element=>{
+        if(element===target){
+          counter++;
+        }
+      });
+    }
+  });
+  return counter;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -64,11 +81,9 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 const totalSum = (input) => {
   // Solution code here...
 
-  return input
-    .reduce((acc, val) => {
-      return acc += val
-        .reduce((acc2, val2) => acc2 += val2, 0);
-    }, 0);
+  let total=0;
+  input.map(arr=>arr.map(element=> total+=element));
+  return total ;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -85,6 +100,9 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+  const array=input.map(arr=> arr.filter(element=>typeof(element) === 'number' && !(element% 5)).map(value=>Math.pow(2,value)));
+  return array;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -161,6 +179,10 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
+  const arr=data.sort((element1,element2)=>element1.
+  height-element2.height).map(element=>element.name) ;
+  return arr[0];
+
 };
 
 /* ------------------------------------------------------------------------------------------------
