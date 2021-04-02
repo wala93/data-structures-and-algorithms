@@ -9,8 +9,8 @@ Write a function named returnTen, takes in a string and uses split and splice to
 
 function returnTen(str){
   // Solution code here...
-  let newStr= str.foreach(element=>str.splice());
-  return newStr;
+  let newStr= str.spilt('');
+  return newStr.splice(-10);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ For example, typeNum([1, 'bob' ,3]) returns [1,3].
 
 const typeNum = (arr) => {
   // Solution code here...
-  arr.fiter(inpt=> inpt!==(`/w/`));
+  return arr.fiter(x=> typeof x === 'number');
 
 };
 
@@ -37,7 +37,11 @@ For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 
 const containsAnd = (arr) => {
   // Solution code here...
-  arr.filter(element=>element!==('ran'));
+  let newArr = arr.filter(x=>{
+    let regex = /and/g;
+    return regex.test(x);
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -50,7 +54,9 @@ For example, oddValues([1,2,3]) returns [1,3].
 
 const oddValues = (arr) => {
   // Solution code here...
-  arr.filter(num=> num%2);
+  let newArr = arr.filter(x=> x%2);
+  return newArr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -66,6 +72,13 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (arr) => {
   // Solution code here...
+  let newArr = arr.filter(x=>{
+
+    let regex = /[A,e,i,u,o]/ig;
+    return regex.test(x);
+  });
+
+  return newArr;
 };
 
 
@@ -79,6 +92,13 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
+  let newArr = arr.filter(x=> {
+
+    return !(forbiddenValues.includes(x));
+  });
+
+  return newArr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
