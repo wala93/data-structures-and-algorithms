@@ -8,8 +8,8 @@ Write a function called addTwo that takes in an array and adds two to every valu
 
 const addTwo = (arr) => {
   // Solution code here...
-  for (let i=0;arr.length;i++){arr[i]+2;}
-  return arr ;
+  let newArr=[];
+  arr.foreach(element => {newArr.push(element+2);});
 
 };
 
@@ -22,8 +22,11 @@ Write a function named containsW that takes in a string. This function should us
 
 const containsW = (str) => {
   // Solution code here...
-  let reg = /w/;
-  return str.match(reg);
+  let reg = /w/g;
+  if (reg.test(str))
+  { return true;}
+  else {return false ;}
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -40,8 +43,10 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
-  let reg = /[0-9]/;
-  return input.match(reg);
+  let reg = /[0-9]/g;
+  if (reg.test(input)){return true}
+  else {return false;}
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -53,8 +58,10 @@ Write a function named containsWorld that takes in a string or number of any len
 
 const containsWorld = (input) => {
   // Solution code here...
-  let reg = /(world)/;
-  return input.match(reg);
+  let reg = /world/g;
+  if (reg.test(input)){return true}
+  else {return false;}
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,8 +74,14 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
-  let reg = /\^[A-Z]/;
-  return str.match(reg);
+  let newArr=[];
+  const matchedWord=str.match(/(\b[A-Z].*?)(.\b)/g);
+  if(matchedWord){
+    matchedWord.forEach(element=>{
+      newArr.push(element);
+    });
+
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -79,12 +92,15 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
-  let reg = /\^[A-J]/;
-  let newArr =[];
-  for (let i=0;length.arr;i++){
-    if (arr[i].match(reg)){newArr.push(arr[i]);}
-  }
-};
+  let newArr=[];
+  arr.forEach(element=>{
+    if(element.match(/^[A-J]/g))
+    {
+      newArr.push(element);
+    }
+  });
+  return newArr;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
